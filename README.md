@@ -27,6 +27,15 @@ The winner is determined by the following rules:
 If both players choose the same option, the game results in a **tie**.
 
 
+## Features
+- **Interactive Gameplay**: Players can select their choice, and the winner is determined based on the rules.
+- **Clear Visual Feedback**: Winning and losing outcomes are displayed in an engaging and intuitive way.
+- **Scoreboard**: Tracks the points of the user and the computer across multiple rounds.
+- **Data Persistence**: Retains the game state and scoreboard.
+- **Restart**: Allows the user to restart the game, clearing the scoreboard and resetting the game state.
+
+
+## Up and Running
 ```shell
 make run
 ```
@@ -38,5 +47,6 @@ make run
 
 
 ##### Credits
-Author: [Hadi Tajallaei](mailto:hadi@syniol.com)
+Author: [Hadi Tajallaei (Genius Persian Child)](mailto:hadi@syniol.com)
+
 Copyright &copy; 2025 Syniol Limited. All rights reserved.
