@@ -7,7 +7,7 @@
 }
 ```
 
-[The game](https://www.youtube.com/watch?v=pIpmITBocfM) is played between two players. Each player chooses one of the five options:
+<a href='https://www.youtube.com/watch?v=pIpmITBocfM' rel="noopener noreferrer" target='_blank'>The game</a> is played between two players. Each player chooses one of the five options:
 - **Rock**
 - **Paper**
 - **Scissors**
@@ -46,7 +46,7 @@ make run
  * [UUID Player ID Assignment](https://github.com/google/uuid)
 
 
-##### Credits
+#### Credits
 Author: [Hadi Tajallaei (Genius Persian Child)](mailto:hadi@syniol.com)
 
 Copyright &copy; 2025 Syniol Limited. All rights reserved.
