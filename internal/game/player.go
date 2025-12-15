@@ -4,27 +4,17 @@ import (
 	"github.com/google/uuid"
 )
 
+const MinimumPlayerNameLength = 3
+const MaximumPlayerNameLength = 12
+
 type Player struct {
 	ID     PlayerID
 	Name   string
-	choice *Choice
+	Choice Choice
 }
 
-func NewPlayer(name string) *Player {
+func NewPlayer() *Player {
 	return &Player{
-		ID:     PlayerID(uuid.NewString()),
-		Name:   name,
-		choice: nil,
+		ID: PlayerID(uuid.NewString()),
 	}
-}
-
-// Choice returning a value on purpose to encapsulate memory address (idempotency)
-func (p *Player) Choice() Choice {
-	return *p.choice
-}
-
-func (p *Player) SetChoice(choice Choice) *Player {
-	p.choice = &choice
-
-	return p
 }
