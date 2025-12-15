@@ -1,5 +1,12 @@
 # Rock, Paper, Scissors, Lizard, Spock in Go (GoLang)
 
+```json
+{
+  "status": "In Progress",
+  "Estimated Finish Date": "17 December 2025"
+}
+```
+
 [The game](https://www.youtube.com/watch?v=pIpmITBocfM) is played between two players. Each player chooses one of the five options:
 - **Rock**
 - **Paper**
@@ -18,11 +25,6 @@ The winner is determined by the following rules:
 | **Spock**    | Scissors, Rock   | Smashes Scissors, Vaporizes Rock |
 
 If both players choose the same option, the game results in a **tie**.
-
-
-__Status:__ In Progress
-
-__Estimated Finish Date:__ 17th December 2025
 
 
 ```shell
