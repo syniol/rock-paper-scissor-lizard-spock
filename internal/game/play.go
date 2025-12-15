@@ -10,7 +10,7 @@ func Play(playerOne, playerTwo *Player) *Score {
 	if playerOne.Choice() == playerTwo.Choice() {
 		return &Score{
 			Status: PlayStatusDraw,
-			Reason: fmt.Sprintf("both players chose %s", playerOne.Choice()),
+			Reason: fmt.Sprintf("both players chosen %s", playerOne.Choice()),
 		}
 	}
 
