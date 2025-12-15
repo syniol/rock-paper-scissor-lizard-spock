@@ -11,7 +11,7 @@ make run
 ```
 
 
-#### Dependencies
+### Main Dependencies
  * [CLI Forms](https://github.com/charmbracelet/huh)
  * [UUID Player ID Assignment](https://github.com/google/uuid)
 
