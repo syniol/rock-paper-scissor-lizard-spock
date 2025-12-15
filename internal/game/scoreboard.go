@@ -1,4 +1,4 @@
-package scoreboard
+package game
 
 import (
 	"encoding/json"
@@ -6,7 +6,6 @@ import (
 	"os"
 	"sync"
 
-	"interview-rock-paper/internal/game"
 	"interview-rock-paper/pkg"
 )
 
@@ -21,7 +20,7 @@ type PlayerID string
 
 type Score struct {
 	Status PlayStatus
-	Winner *game.Player
+	Winner *Player
 	Reason string
 }
 
