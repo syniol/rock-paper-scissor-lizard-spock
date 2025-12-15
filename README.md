@@ -1,5 +1,24 @@
 # Rock, Paper, Scissors, Lizard, Spock in Go (GoLang)
-This is a fun little project
+
+[The game](https://www.youtube.com/watch?v=pIpmITBocfM) is played between two players. Each player chooses one of the five options:
+- **Rock**
+- **Paper**
+- **Scissors**
+- **Lizard**
+- **Spock**
+
+The winner is determined by the following rules:
+
+| **Choice**   | **Wins Against** | **Reason**                       |
+|--------------|------------------|----------------------------------|
+| **Scissors** | Paper, Lizard    | Cuts Paper, Decapitates Lizard   |
+| **Paper**    | Rock, Spock      | Covers Rock, Disproves Spock     |
+| **Rock**     | Scissors, Lizard | Crushes Scissors, Crushes Lizard |
+| **Lizard**   | Paper, Spock     | Eats Paper, Poisons Spock        |
+| **Spock**    | Scissors, Rock   | Smashes Scissors, Vaporizes Rock |
+
+If both players choose the same option, the game results in a **tie**.
+
 
 __Status:__ In Progress
 
