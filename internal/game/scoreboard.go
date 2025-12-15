@@ -6,6 +6,7 @@ import (
 	"os"
 	"sync"
 
+	"interview-rock-paper/internal/game"
 	"interview-rock-paper/pkg"
 )
 
@@ -20,7 +21,7 @@ type PlayerID string
 
 type Score struct {
 	Status PlayStatus
-	Winner PlayerID
+	Winner *game.Player
 	Reason string
 }
 
