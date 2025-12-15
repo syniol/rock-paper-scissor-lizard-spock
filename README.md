@@ -1,8 +1,16 @@
 # Rock, Paper, Scissors, Lizard, Spock in Go (GoLang)
-...
 
-New Game -> Cleans the scoreboard
-Continue -> Loads the scoreboard
+__Status:__ In Progress
+__Estimated Finish Date:__ 17th December 2025
+
+```shell
+go run ./cmd/cli.go
+```
+
+
+#### Dependencies
+ * [CLI Forms](https://github.com/charmbracelet/huh)
+ * [UUID Player ID Assignment](https://github.com/google/uuid)
 
 
 ##### Credits
