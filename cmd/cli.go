@@ -5,9 +5,6 @@ import (
 	"log"
 	"os"
 
-	"github.com/fatih/color"
-	"github.com/rodaine/table"
-
 	"github.com/charmbracelet/huh"
 	"interview-rock-paper/internal/game"
 )
@@ -61,19 +58,7 @@ func main() {
 		}
 
 		if newGame.Scoreboard.HasScore() {
-			tableHeaderColour := color.New(color.FgWhite, color.BgMagenta, color.Bold).SprintfFunc()
-			tableColumnColour := color.New(color.FgYellow, color.Bold, color.BlinkSlow).SprintfFunc()
-			scoreboardTable := table.New("Score", "Name")
-			scoreboardTable.
-				WithHeaderFormatter(tableHeaderColour).
-				WithFirstColumnFormatter(tableColumnColour).
-				WithPadding(6)
-
-			for playerName, playerScore := range newGame.Scoreboard.Scoreboard() {
-				scoreboardTable.AddRow(playerScore, playerName)
-			}
-			scoreboardTable.Print()
-			fmt.Println()
+			newGame.Scoreboard.Print()
 		}
 
 		err = huh.NewForm(
