@@ -8,11 +8,15 @@ import (
 	"unicode/utf8"
 
 	"github.com/charmbracelet/huh"
+	"github.com/fatih/color"
+	"github.com/rodaine/table"
 
 	"interview-rock-paper/internal/game"
 )
 
 func main() {
+	var scoreboard = game.NewScoreboard()
+
 	err := huh.NewForm(
 		huh.NewGroup(
 			huh.
@@ -86,12 +90,28 @@ func main() {
 
 		fmt.Printf("Computer picked: %s\n", computer.Choice)
 		if score.Winner != nil {
+			scoreboard.SetScore(score.Winner.Name)
+
 			fmt.Printf("The winner is: %s\n\n", score.Winner.Name)
 		}
 
 		if score.Winner == nil {
 			fmt.Printf("%s %s\n\n", score.Status, score.Reason)
 		}
+
+		tableHeaderColour := color.New(color.FgWhite, color.BgMagenta, color.Bold).SprintfFunc()
+		tableColumnColour := color.New(color.FgYellow, color.Bold, color.BlinkSlow).SprintfFunc()
+		scoreboardTable := table.New("Score", "Name")
+		scoreboardTable.
+			WithHeaderFormatter(tableHeaderColour).
+			WithFirstColumnFormatter(tableColumnColour).
+			WithPadding(6)
+
+		for playerName, playerScore := range scoreboard.Scoreboard() {
+			scoreboardTable.AddRow(playerScore, playerName)
+		}
+		scoreboardTable.Print()
+		fmt.Println()
 
 		err = huh.NewForm(
 			huh.NewGroup(

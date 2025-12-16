@@ -1,22 +1,11 @@
 package game
 
-import (
-	"encoding/json"
-	"errors"
-	"os"
-	"sync"
-
-	"interview-rock-paper/pkg"
-)
-
 type PlayStatus string
 
 const (
 	PlayStatusWin  PlayStatus = "Win"
 	PlayStatusDraw PlayStatus = "Draw"
 )
-
-type PlayerID string
 
 type Score struct {
 	Status PlayStatus
@@ -25,50 +14,19 @@ type Score struct {
 }
 
 type Scoreboard struct {
-	History        map[PlayerID]int `json:"history"`
-	LastPlayStatus PlayStatus       `json:"lastPlayStatus"`
-	LastWinner     PlayerID         `json:"lastWinner"`
-
-	entity pkg.Entity
+	storage map[string]int
 }
 
-var scoreboardStorage *Scoreboard
-var onceScoreboard sync.Once
-
-func find(ID string) (sb *Scoreboard, err error) {
-	onceScoreboard.Do(func() {
-		contents, errReadFile := os.ReadFile(".game_history.json")
-		if errReadFile != nil {
-			// could use ! but for better code readability I used == false
-			if errors.Is(errReadFile, os.ErrNotExist) == false {
-				if errReadFile != nil {
-					err = errReadFile
-					return
-				}
-			}
-
-			// todo: create a file initial setup
-		}
-
-		var scoreboardStored Scoreboard
-		err = json.Unmarshal(contents, &scoreboardStored)
-		if err != nil {
-			return
-		}
-
-		sb = scoreboardStorage
-		return
-	})
-
-	return scoreboardStorage, nil
+func NewScoreboard() *Scoreboard {
+	return &Scoreboard{
+		storage: make(map[string]int),
+	}
 }
 
-func Persis(sb *Scoreboard) error {
-	return nil
+func (sb *Scoreboard) SetScore(key string) {
+	sb.storage[key] = sb.storage[key] + 1
 }
 
-func Delete(sb *Scoreboard) error {
-	// todo: modify scoreboardStorage
-	// todo: save
-	return nil
+func (sb *Scoreboard) Scoreboard() map[string]int {
+	return sb.storage
 }

@@ -10,7 +10,7 @@ const (
 	Spock    Choice = "Spock"
 )
 
-var Rules map[Choice]map[Choice]string = map[Choice]map[Choice]string{
+var Rules = map[Choice]map[Choice]string{
 	Scissors: {
 		Paper:  "Cuts Paper",
 		Lizard: "Decapitates Lizard",

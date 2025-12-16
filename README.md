@@ -43,7 +43,8 @@ make run
 
 ### Main Dependencies
  * [CLI Forms](https://github.com/charmbracelet/huh)
- * [UUID Player ID Assignment](https://github.com/google/uuid)
+ * [CLI Table Colour Format](https://github.com/fatih/color)
+ * [CLI Table Display](https://github.com/rodaine/table)
 
 
 #### Credits
