@@ -7,33 +7,18 @@ import (
 	"os"
 	"unicode/utf8"
 
-	"github.com/charmbracelet/huh"
 	"github.com/fatih/color"
 	"github.com/rodaine/table"
 
+	"github.com/charmbracelet/huh"
 	"interview-rock-paper/internal/game"
 )
 
 func main() {
 	var scoreboard = game.NewScoreboard()
-
-	err := huh.NewForm(
-		huh.NewGroup(
-			huh.
-				NewSelect[string]().
-				Options(
-					huh.NewOption("New Game", "new"),
-					huh.NewOption("Continue", "continue"),
-				),
-		),
-	).Run()
-	if err != nil {
-		log.Fatal(err)
-	}
-
 	player := game.NewPlayer()
 
-	err = huh.NewForm(
+	err := huh.NewForm(
 		huh.NewGroup(
 			huh.NewInput().
 				Title("Enter your gaming nickname?").
@@ -55,8 +40,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	var exitRequested bool = false
-	for exitRequested == false {
+	var inGameCommand string = "continue"
+	for inGameCommand != "exit" {
 		err = huh.NewForm(
 			huh.NewGroup(
 				huh.
@@ -65,7 +50,7 @@ func main() {
 					Options(
 						huh.NewOption("Rock 🪨", game.Rock),
 						huh.NewOption("Paper 📄", game.Paper),
-						huh.NewOption("Scissor ✂️", game.Scissors),
+						huh.NewOption("Scissor ✂️", game.Scissor),
 						huh.NewOption("Lizard 🦎", game.Lizard),
 						huh.NewOption("Spock 🖖", game.Spock),
 					).Value(&player.Choice),
@@ -99,38 +84,45 @@ func main() {
 			fmt.Printf("%s %s\n\n", score.Status, score.Reason)
 		}
 
-		tableHeaderColour := color.New(color.FgWhite, color.BgMagenta, color.Bold).SprintfFunc()
-		tableColumnColour := color.New(color.FgYellow, color.Bold, color.BlinkSlow).SprintfFunc()
-		scoreboardTable := table.New("Score", "Name")
-		scoreboardTable.
-			WithHeaderFormatter(tableHeaderColour).
-			WithFirstColumnFormatter(tableColumnColour).
-			WithPadding(6)
+		if scoreboard.HasScore() {
+			tableHeaderColour := color.New(color.FgWhite, color.BgMagenta, color.Bold).SprintfFunc()
+			tableColumnColour := color.New(color.FgYellow, color.Bold, color.BlinkSlow).SprintfFunc()
+			scoreboardTable := table.New("Score", "Name")
+			scoreboardTable.
+				WithHeaderFormatter(tableHeaderColour).
+				WithFirstColumnFormatter(tableColumnColour).
+				WithPadding(6)
 
-		for playerName, playerScore := range scoreboard.Scoreboard() {
-			scoreboardTable.AddRow(playerScore, playerName)
+			for playerName, playerScore := range scoreboard.Scoreboard() {
+				scoreboardTable.AddRow(playerScore, playerName)
+			}
+			scoreboardTable.Print()
+			fmt.Println()
 		}
-		scoreboardTable.Print()
-		fmt.Println()
 
 		err = huh.NewForm(
 			huh.NewGroup(
 				huh.
-					NewSelect[bool]().
-					Title("").
+					NewSelect[string]().
 					Options(
-						huh.NewOption("Continue", false),
-						huh.NewOption("Exit", true),
-					).Value(&exitRequested),
+						huh.NewOption("Continue", "continue"),
+						huh.NewOption("Reset Scoreboard", "reset"),
+						huh.NewOption("Exit", "exit"),
+					).Value(&inGameCommand),
 			),
 		).Run()
 		if err != nil {
 			log.Fatal(err)
 		}
-	}
 
-	if exitRequested {
-		fmt.Println("\nThank you for playing.")
-		os.Exit(0)
+		if inGameCommand == "reset" {
+			scoreboard.Reset()
+			fmt.Println("Scoreboard has been reset")
+		}
+
+		if inGameCommand == "exit" {
+			fmt.Println("\nThank you for playing.")
+			os.Exit(0)
+		}
 	}
 }

@@ -3,15 +3,15 @@ package game
 type Choice string
 
 const (
-	Rock     Choice = "Rock"
-	Paper    Choice = "Paper"
-	Scissors Choice = "Scissors"
-	Lizard   Choice = "Lizard"
-	Spock    Choice = "Spock"
+	Rock    Choice = "Rock"
+	Paper   Choice = "Paper"
+	Scissor Choice = "Scissor"
+	Lizard  Choice = "Lizard"
+	Spock   Choice = "Spock"
 )
 
 var Rules = map[Choice]map[Choice]string{
-	Scissors: {
+	Scissor: {
 		Paper:  "Cuts Paper",
 		Lizard: "Decapitates Lizard",
 	},
@@ -20,15 +20,15 @@ var Rules = map[Choice]map[Choice]string{
 		Spock: "Disproves Spock",
 	},
 	Rock: {
-		Scissors: "Crushes Scissors",
-		Lizard:   "Crushes Lizard",
+		Scissor: "Crushes Scissor",
+		Lizard:  "Crushes Lizard",
 	},
 	Lizard: {
 		Paper: "Eats Paper",
 		Spock: "Poisons Spock",
 	},
 	Spock: {
-		Scissors: "Smashes Scissors",
-		Rock:     "Vaporizes Rock",
+		Scissor: "Smashes Scissor",
+		Rock:    "Vaporizes Rock",
 	},
 }

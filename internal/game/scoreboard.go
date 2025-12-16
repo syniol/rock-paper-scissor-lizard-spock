@@ -30,3 +30,11 @@ func (sb *Scoreboard) SetScore(key string) {
 func (sb *Scoreboard) Scoreboard() map[string]int {
 	return sb.storage
 }
+
+func (sb *Scoreboard) HasScore() bool {
+	return len(sb.storage) > 0
+}
+
+func (sb *Scoreboard) Reset() {
+	sb.storage = make(map[string]int)
+}
