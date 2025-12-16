@@ -13,31 +13,44 @@ const (
 	StateExit  State = "exit"
 )
 
+type Opponent string
+
+const (
+	OpponentComputer Opponent = "computer"
+	OpponentHuman    Opponent = "human"
+)
+
 type Game struct {
 	Players    [2]*Player
 	Scoreboard *Scoreboard
 	State      State
+	Opponent   Opponent
 }
 
 func NewGame() *Game {
 	return &Game{
 		Scoreboard: NewScoreboard(),
 		Players: [2]*Player{
-			NewPlayer(""),
-			NewPlayer("Computer"),
+			NewPlayer(),
+			NewPlayer(),
 		},
-		State: StatePlay,
+		State:    StatePlay,
+		Opponent: OpponentComputer,
 	}
 }
 
 func (g *Game) Start() *Score {
-	computerSelection := rand.Intn(len(Rules))
-	count := 0
-	for weaponName, _ := range Rules {
-		if count == computerSelection {
-			g.Players[1].Choice = weaponName
+	if g.Opponent == OpponentComputer {
+		g.Players[1].Name = "Computer"
+
+		computerSelection := rand.Intn(len(Rules))
+		count := 0
+		for weaponName, _ := range Rules {
+			if count == computerSelection {
+				g.Players[1].Choice = weaponName
+			}
+			count++
 		}
-		count++
 	}
 
 	if g.Players[0].Choice == g.Players[1].Choice {

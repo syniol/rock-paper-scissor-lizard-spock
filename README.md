@@ -1,11 +1,4 @@
-# Rock, Paper, Scissors, Lizard, Spock in Go (GoLang)
-
-```json
-{
-  "status": "In Progress",
-  "Estimated Finish Date": "17 December 2025"
-}
-```
+# Rock, Paper, Scissor, Lizard, Spock in Go (GoLang)``
 
 <a href='https://www.youtube.com/watch?v=pIpmITBocfM' rel="noopener noreferrer" target='_blank'>The game</a> is played between two players. Each player chooses one of the five options:
 - **Rock**
@@ -36,8 +29,16 @@ If both players choose the same option, the game results in a **tie**.
 
 
 ## Up and Running
+You need to have a Go installation for version `1.24`.
+
+For Unix based operating systems you could use:
 ```shell
 make run
+```
+
+For Windows, please use the following command:
+```shell
+go run cmd\cli.go
 ```
 
 

@@ -15,15 +15,39 @@ func main() {
 	err := huh.NewForm(
 		huh.NewGroup(
 			huh.NewInput().
-				Title("Enter your gaming nickname?").
+				Title("Please enter your gaming nickname?").
 				Value(&newGame.Players[0].Name).
 				Validate(func(name string) error {
 					return newGame.Players[0].ValidateName()
 				}),
 		),
+		huh.NewGroup(
+			huh.NewSelect[game.Opponent]().
+				Title("Do you wish to play against a computer?").
+				Options(
+					huh.NewOption("Yes", game.OpponentComputer),
+					huh.NewOption("No", game.OpponentHuman),
+				).Value(&newGame.Opponent),
+		),
 	).Run()
 	if err != nil {
 		log.Fatal(err)
+	}
+
+	if newGame.Opponent == game.OpponentHuman {
+		err = huh.NewForm(
+			huh.NewGroup(
+				huh.NewInput().
+					Title("Second player, please enter your gaming nickname?").
+					Value(&newGame.Players[1].Name).
+					Validate(func(name string) error {
+						return newGame.Players[1].ValidateName()
+					}),
+			),
+		).Run()
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 
 	for newGame.State != game.StateExit {
@@ -45,10 +69,38 @@ func main() {
 			log.Fatal(err)
 		}
 
+		if newGame.Opponent == game.OpponentHuman {
+			err = huh.NewForm(
+				huh.NewGroup(
+					huh.
+						NewSelect[game.Choice]().
+						Title("Pick your weapon").
+						Options(
+							huh.NewOption("Rock 🪨", game.Rock),
+							huh.NewOption("Paper 📄", game.Paper),
+							huh.NewOption("Scissor ✂️", game.Scissor),
+							huh.NewOption("Lizard 🦎", game.Lizard),
+							huh.NewOption("Spock 🖖", game.Spock),
+						).Value(&newGame.Players[1].Choice),
+				),
+			).Run()
+			if err != nil {
+				log.Fatal(err)
+			}
+		}
+
 		score := newGame.Start()
 
-		fmt.Printf("You picked: %s\n", newGame.Players[0].Choice)
-		fmt.Printf("Computer picked: %s\n", newGame.Players[1].Choice)
+		fmt.Printf(
+			"%s picked: %s\n",
+			newGame.Players[0].Name,
+			newGame.Players[0].Choice,
+		)
+		fmt.Printf(
+			"%s picked: %s\n",
+			newGame.Players[1].Name,
+			newGame.Players[1].Choice,
+		)
 		if score.Winner != nil {
 			fmt.Printf("The winner is: %s\n\n", score.Winner.Name)
 		}

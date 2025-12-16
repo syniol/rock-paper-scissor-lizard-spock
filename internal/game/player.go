@@ -13,10 +13,8 @@ type Player struct {
 	Choice Choice
 }
 
-func NewPlayer(name string) *Player {
-	return &Player{
-		Name: name,
-	}
+func NewPlayer() *Player {
+	return &Player{}
 }
 
 func (player *Player) ValidateName() error {
