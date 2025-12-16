@@ -3,9 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
-	"math/rand"
 	"os"
-	"unicode/utf8"
 
 	"github.com/fatih/color"
 	"github.com/rodaine/table"
@@ -15,24 +13,15 @@ import (
 )
 
 func main() {
-	var scoreboard = game.NewScoreboard()
-	player := game.NewPlayer()
+	newGame := game.NewGame()
 
 	err := huh.NewForm(
 		huh.NewGroup(
 			huh.NewInput().
 				Title("Enter your gaming nickname?").
-				Value(&player.Name).
+				Value(&newGame.Players[0].Name).
 				Validate(func(name string) error {
-					if utf8.RuneCountInString(name) < game.MinimumPlayerNameLength {
-						return fmt.Errorf("name must contain at least %d characters", game.MinimumPlayerNameLength)
-					}
-
-					if utf8.RuneCountInString(name) > game.MaximumPlayerNameLength {
-						return fmt.Errorf("name must contain at most %d characters", game.MaximumPlayerNameLength)
-					}
-
-					return nil
+					return newGame.Players[0].ValidateName()
 				}),
 		),
 	).Run()
@@ -40,8 +29,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	var inGameCommand string = "continue"
-	for inGameCommand != "exit" {
+	for newGame.State != game.StateExit {
 		err = huh.NewForm(
 			huh.NewGroup(
 				huh.
@@ -53,30 +41,18 @@ func main() {
 						huh.NewOption("Scissor ✂️", game.Scissor),
 						huh.NewOption("Lizard 🦎", game.Lizard),
 						huh.NewOption("Spock 🖖", game.Spock),
-					).Value(&player.Choice),
+					).Value(&newGame.Players[0].Choice),
 			),
 		).Run()
 		if err != nil {
 			log.Fatal(err)
 		}
 
-		computer := game.NewPlayer()
-		computer.Name = "Computer"
-		computerSelection := rand.Intn(len(game.Rules))
-		count := 0
-		for weaponName, _ := range game.Rules {
-			if count == computerSelection {
-				computer.Choice = weaponName
-			}
-			count++
-		}
+		score := newGame.Start()
 
-		score := game.Play(computer, player)
-
-		fmt.Printf("Computer picked: %s\n", computer.Choice)
+		fmt.Printf("You picked: %s\n", newGame.Players[0].Choice)
+		fmt.Printf("Computer picked: %s\n", newGame.Players[1].Choice)
 		if score.Winner != nil {
-			scoreboard.SetScore(score.Winner.Name)
-
 			fmt.Printf("The winner is: %s\n\n", score.Winner.Name)
 		}
 
@@ -84,7 +60,7 @@ func main() {
 			fmt.Printf("%s %s\n\n", score.Status, score.Reason)
 		}
 
-		if scoreboard.HasScore() {
+		if newGame.Scoreboard.HasScore() {
 			tableHeaderColour := color.New(color.FgWhite, color.BgMagenta, color.Bold).SprintfFunc()
 			tableColumnColour := color.New(color.FgYellow, color.Bold, color.BlinkSlow).SprintfFunc()
 			scoreboardTable := table.New("Score", "Name")
@@ -93,7 +69,7 @@ func main() {
 				WithFirstColumnFormatter(tableColumnColour).
 				WithPadding(6)
 
-			for playerName, playerScore := range scoreboard.Scoreboard() {
+			for playerName, playerScore := range newGame.Scoreboard.Scoreboard() {
 				scoreboardTable.AddRow(playerScore, playerName)
 			}
 			scoreboardTable.Print()
@@ -103,25 +79,25 @@ func main() {
 		err = huh.NewForm(
 			huh.NewGroup(
 				huh.
-					NewSelect[string]().
+					NewSelect[game.State]().
 					Options(
-						huh.NewOption("Continue", "continue"),
-						huh.NewOption("Reset Scoreboard", "reset"),
-						huh.NewOption("Exit", "exit"),
-					).Value(&inGameCommand),
+						huh.NewOption("Continue", game.StatePlay),
+						huh.NewOption("Reset Scoreboard", game.StateReset),
+						huh.NewOption("Exit", game.StateExit),
+					).Value(&newGame.State),
 			),
 		).Run()
 		if err != nil {
 			log.Fatal(err)
 		}
 
-		if inGameCommand == "reset" {
-			scoreboard.Reset()
-			fmt.Println("Scoreboard has been reset")
+		if newGame.State == "reset" {
+			newGame.Scoreboard.Reset()
+			fmt.Println("Scoreboard has been reset\n")
 		}
 
-		if inGameCommand == "exit" {
-			fmt.Println("\nThank you for playing.")
+		if newGame.State == "exit" {
+			fmt.Println("\nThank you for playing.\n")
 			os.Exit(0)
 		}
 	}
