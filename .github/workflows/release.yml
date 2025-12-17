@@ -1,0 +1,45 @@
+name: Production Release Artifacts
+
+on:
+  push:
+    branches: [ "main" ]
+
+#on:
+#  release:
+#    types:
+#      - published
+
+jobs:
+  build:
+    name: Build Multiple OS Binaries
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-go@v3
+        with:
+          go-version: 1.24.0
+      - uses: actions/checkout@v3
+        with:
+          path: 'go/src/github.com/syniol/rock-paper-scissor-lizard-spock'
+
+      - name: Build Binaries
+        run: go build -o ./dist/cli ./cmd/cli.go
+
+  upload:
+    name: Upload release artifacts
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: 'go/src/github.com/syniol/rock-paper-scissor-lizard-spock'
+
+      - name: List downloaded files
+        run: ls -la
+
+#      - name: Upload to release
+#        uses: softprops/action-gh-release@v2
+#        with:
+#          token: ${{secrets.GITHUB_TOKEN}}
+#          tag_name: ${{github.event.release.name}}
+#          files: ./*/*
+#          fail_on_unmatched_files: true
