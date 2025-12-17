@@ -36,6 +36,18 @@ If both players choose the same option, the game results in a **tie**.
 - **Restart**: Allows the user to restart the game, clearing the scoreboard and resetting the game state.
 
 
+## Motivation
+I recently got asked to come in for a second interview at this awesome robotics company in London. I was super pumped about what they do.
+
+However, the pair programming exercise could be pretty tough for me. I struggle with stress, and they switched up the technical challenge 
+at the last minute. The engineer assigned to the exercise seemed really nice, though. I think he was a bit let down, but he had no idea 
+about my ADD, which I always keep under wraps. I even flunked my motorbike test nine times before finally passing, and I never mentioned 
+my condition to the examiner.
+
+This was one of their take-home exercises that I started but never got to demo, and I ended up failing the pairing exercise. I wrapped it 
+up just to save face, hoping the engineers at that company might see that I'm not as bad as I seem, haha.
+
+
 ## Up and Running
 You need to have a Go installation for version `1.24`.
 
