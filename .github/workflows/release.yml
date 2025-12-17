@@ -25,7 +25,7 @@ jobs:
           path: 'go/src/github.com/syniol/rock-paper-scissor-lizard-spock'
 
       - name: Build Binaries
-        run: ls -la
+        run: go build -o ./dist/cli ./cmd/cli.go
 
   upload:
     name: Upload release artifacts
