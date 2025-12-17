@@ -33,7 +33,7 @@ jobs:
           token: ${{secrets.GITHUB_TOKEN}}
           tag_name: v0.0.1
 #          tag_name: ${{github.event.release.name}}
-          files: ./dist/*
+          files: go/src/github.com/syniol/rock-paper-scissor-lizard-spock/dist/*
           fail_on_unmatched_files: true
 
 #  upload:
