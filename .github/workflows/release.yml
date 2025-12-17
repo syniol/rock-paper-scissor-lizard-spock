@@ -34,9 +34,9 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          path: 'go/src/github.com/syniol/rock-paper-scissor-lizard-spock/dist'
+          path: .
 
-      - name: List downloaded files
+      - name: List the downloaded files
         run: ls -la
 
 #      - name: Upload to release
