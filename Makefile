@@ -6,8 +6,8 @@ build:
 	env GOOS=linux GOARCH=arm go build -o ./dist/rpsls-cli-linux-arm ./cmd/cli.go
 	env GOOS=linux GOARCH=386 go build -o ./dist/rpsls-cli-linux-386 ./cmd/cli.go
 	env GOOS=solaris GOARCH=amd64 go build -o ./dist/rpsls-cli-solaris-amd64 ./cmd/cli.go
-	env GOOS=windows GOARCH=386 go build -o ./dist/rpsls-cli-windows-386 ./cmd/cli.go
-	env GOOS=windows GOARCH=amd64 go build -o ./dist/rpsls-cli-windows-amd64 ./cmd/cli.go
+	env GOOS=windows GOARCH=386 go build -o ./dist/rpsls-cli-windows-386.exe ./cmd/cli.go
+	env GOOS=windows GOARCH=amd64 go build -o ./dist/rpsls-cli-windows-amd64.exe ./cmd/cli.go
 
 
 run:
