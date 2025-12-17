@@ -42,6 +42,10 @@ func (sb *Scoreboard) HasScore() bool {
 	return len(sb.storage) > 0
 }
 
+func (sb *Scoreboard) Reset() {
+	sb.storage = make(map[string]int)
+}
+
 func (sb *Scoreboard) Print() {
 	tableHeaderColour := color.New(color.FgWhite, color.BgMagenta, color.Bold).SprintfFunc()
 	tableColumnColour := color.New(color.FgYellow, color.Bold, color.BlinkSlow).SprintfFunc()
@@ -56,8 +60,4 @@ func (sb *Scoreboard) Print() {
 	}
 	scoreboardTable.Print()
 	fmt.Println()
-}
-
-func (sb *Scoreboard) Reset() {
-	sb.storage = make(map[string]int)
 }
