@@ -1,4 +1,5 @@
 # Rock, Paper, Scissor, Lizard, Spock in Go <sup>(GoLang)</sup>
+![workflow](https://github.com/syniol/rock-paper-scissor-lizard-spock/actions/workflows/pipeline.yml/badge.svg)
 
 <div align="center">
     <p align="center" style="width: 50%; float: left;"><a href="https://syniol.com" target="blank"><img alt="Single Player Demo" width="50%" src="https://github.com/syniol/rock-paper-scissor-lizard-spock/blob/main/docs/single-player-demo-optimised.gif?raw=true" /></a>
@@ -8,7 +9,7 @@
     <sup><br />Two Players Demo</sup></p>
 </div>
 
-<a href='https://www.youtube.com/watch?v=pIpmITBocfM' rel="noopener noreferrer" target='_blank'>The game</a> is played between two players. Each player chooses one of the five options:
+<a href='https://www.youtube.com/watch?v=pIpmITBocfM' rel="noopener noreferrer" target='_blank'>The game</a> invented by Sam Kass with his wife Karen Bryla is played between two players. Each player chooses one of the five options:
 - **Rock**
 - **Paper**
 - **Scissors**
