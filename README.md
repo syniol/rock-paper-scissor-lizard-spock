@@ -75,6 +75,6 @@ go run cmd\cli.go
 
 
 #### Credits
-Author: [Hadi Tajallaei (Genius Persian Child)](mailto:hadi@syniol.com)
+Author: [Hadi Tajallaei <sup>_(Genius Persian Child)_<sup>](mailto:hadi@syniol.com)
 
 Copyright &copy; 2025 Syniol Limited. All rights reserved.

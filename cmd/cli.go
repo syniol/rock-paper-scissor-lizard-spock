@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/charmbracelet/huh"
+
 	"github.com/syniol/rock-paper-scissor-lizard-spock/internal/game"
 )
 
@@ -102,7 +103,11 @@ func main() {
 			newGame.Players[1].Choice,
 		)
 		if score.Winner != nil {
-			fmt.Printf("The winner is: %s\n\n", score.Winner.Name)
+			fmt.Printf(
+				"The winner is: %s. %s\n\n",
+				score.Winner.Name,
+				score.Reason,
+			)
 		}
 
 		if score.Winner == nil {
@@ -128,12 +133,12 @@ func main() {
 			log.Fatal(err)
 		}
 
-		if newGame.State == "reset" {
+		if newGame.State == game.StateReset {
 			newGame.Scoreboard.Reset()
 			fmt.Print("Scoreboard has been reset\n\n")
 		}
 
-		if newGame.State == "exit" {
+		if newGame.State == game.StateExit {
 			fmt.Print("\nThank you for playing.\n\n")
 			os.Exit(0)
 		}
