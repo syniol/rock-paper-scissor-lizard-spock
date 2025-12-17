@@ -130,11 +130,11 @@ func main() {
 
 		if newGame.State == "reset" {
 			newGame.Scoreboard.Reset()
-			fmt.Println("Scoreboard has been reset\n")
+			fmt.Print("Scoreboard has been reset\n\n")
 		}
 
 		if newGame.State == "exit" {
-			fmt.Println("\nThank you for playing.\n")
+			fmt.Print("\nThank you for playing.\n\n")
 			os.Exit(0)
 		}
 	}
