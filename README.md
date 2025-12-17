@@ -2,10 +2,10 @@
 
 
 <div align="center">
-    <p align="center"><a href="https://syniol.com" target="blank"><img alt="Single Player Demo" width="80%" src="https://github.com/syniol/rock-paper-scissor-lizard-spock/blob/main/docs/single-player-demo-optimised.gif?raw=true" /></a>
+    <p align="center" style="max-width: 50%; float: left;"><a href="https://syniol.com" target="blank"><img alt="Single Player Demo" width="100%" src="https://github.com/syniol/rock-paper-scissor-lizard-spock/blob/main/docs/single-player-demo-optimised.gif?raw=true" /></a>
     <sup><br />Single Player Demo</sup></p>
 
-<p align="center"><a href="https://syniol.com" target="blank"><img alt="Two Players Demo" width="80%" src="https://github.com/syniol/rock-paper-scissor-lizard-spock/blob/main/docs/two-players-demo-optimised.gif?raw=true" /></a>
+<p align="center" style="max-width: 50%; float: right;"><a href="https://syniol.com" target="blank"><img alt="Two Players Demo" width="100%" src="https://github.com/syniol/rock-paper-scissor-lizard-spock/blob/main/docs/two-players-demo-optimised.gif?raw=true" /></a>
     <sup><br />Two Players Demo</sup></p>
 </div>
 
