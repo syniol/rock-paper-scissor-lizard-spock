@@ -62,7 +62,7 @@ go run cmd\cli.go
 ```
 
 
-### Main Dependencies
+### Dependencies
  * [CLI Forms](https://github.com/charmbracelet/huh)
  * [CLI Table Colour Format](https://github.com/fatih/color)
  * [CLI Table Display](https://github.com/rodaine/table)

@@ -1,5 +1,4 @@
 module github.com/syniol/rock-paper-scissor-lizard-spock
-//module interview-rock-paper
 
 go 1.24
 
