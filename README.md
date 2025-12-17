@@ -1,4 +1,11 @@
 # Rock, Paper, Scissor, Lizard, Spock in Go <sup>(GoLang)</sup>
+
+
+<p align="center">
+    <a href="https://syniol.com" target="blank"><img alt="Single Player Demo" width="80%" src="https://github.com/syniol/rock-paper-scissor-lizard-spock/blob/main/docs/single-player-demo.gif?raw=true" /></a>
+    <sup><br />Single Player Demo</sup>
+</p>
+
 <a href='https://www.youtube.com/watch?v=pIpmITBocfM' rel="noopener noreferrer" target='_blank'>The game</a> is played between two players. Each player chooses one of the five options:
 - **Rock**
 - **Paper**
