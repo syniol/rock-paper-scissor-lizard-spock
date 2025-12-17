@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/charmbracelet/huh"
-	"interview-rock-paper/internal/game"
+	"github.com/syniol/rock-paper-scissor-lizard-spock/internal/game"
 )
 
 func main() {
