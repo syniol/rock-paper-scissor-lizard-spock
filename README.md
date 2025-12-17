@@ -1,5 +1,5 @@
 # Rock, Paper, Scissor, Lizard, Spock in Go <sup>(GoLang)</sup>
-![workflow](https://github.com/syniol/rock-paper-scissor-lizard-spock/actions/workflows/pipeline.yml/badge.svg)
+![workflow](https://github.com/syniol/rock-paper-scissor-lizard-spock/actions/workflows/pipeline.yml/badge.svg)    ![workflow](https://github.com/syniol/rock-paper-scissor-lizard-spock/actions/workflows/release.yml/badge.svg)
 
 <div align="center">
     <p align="center" style="width: 50%; float: left;"><a href="https://syniol.com" target="blank"><img alt="Single Player Demo" width="50%" src="https://github.com/syniol/rock-paper-scissor-lizard-spock/blob/main/docs/single-player-demo-optimised.gif?raw=true" /></a>
@@ -29,12 +29,12 @@ The winner is determined by the following rules:
 If both players choose the same option, the game results in a **tie**.
 
 
-## Features
-- **Interactive Gameplay**: Players can select their choice, and the winner is determined based on the rules.
-- **Clear Visual Feedback**: Winning and losing outcomes are displayed in an engaging and intuitive way.
-- **Scoreboard**: Tracks the points of the user and the computer across multiple rounds.
-- **Data Persistence**: Retains the game state and scoreboard.
-- **Restart**: Allows the user to restart the game, clearing the scoreboard and resetting the game state.
+## Features and Acceptance Criteria
+- [X] **Interactive Gameplay**: Players can select their choice, and the winner is determined based on the rules.
+- [X] **Clear Visual Feedback**: Winning and losing outcomes are displayed in an engaging and intuitive way.
+- [X] **Scoreboard**: Tracks the points of the user and the computer across multiple rounds.
+- [X] **Data Persistence**: Retains the game state and scoreboard.
+- [X] **Restart**: Allows the user to restart the game, clearing the scoreboard and resetting the game state.
 
 
 ## Motivation
@@ -50,7 +50,12 @@ up just to save face, hoping the engineers at that company might see that I'm no
 
 
 ## Up and Running
-You need to have a Go installation for version `1.24`.
+You can download the compiled binary for your operating system from [the release page](https://github.com/syniol/rock-paper-scissor-lizard-spock/releases). You could 
+also download and build from source code. You need to have a Go installation for version `1.24.x`.
+
+```shell
+./rpsls-cli-mac-os-arm64
+```
 
 For Unix based operating systems you could use:
 ```shell

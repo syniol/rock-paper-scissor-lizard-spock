@@ -5,11 +5,6 @@ on:
     tags:
       - 'v*.*.*'
 
-#on:
-#  release:
-#    types:
-#      - published
-
 jobs:
   build:
     name: Build Multiple OS Binaries and Publish
@@ -26,13 +21,12 @@ jobs:
           path: 'go/src/github.com/syniol/rock-paper-scissor-lizard-spock'
 
       - name: Build Binaries
-        run: go build -o ./dist/cli ./cmd/cli.go
+        run: make
 
-      - name: Upload to release
+      - name: Upload and Create a Release
         uses: softprops/action-gh-release@v2
         with:
           token: ${{secrets.GITHUB_TOKEN}}
-#          tag_name: ${{github.event.release.name}}
           tag_name: ${{ github.ref_name }}
           files: go/src/github.com/syniol/rock-paper-scissor-lizard-spock/dist/*
           fail_on_unmatched_files: true
