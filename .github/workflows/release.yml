@@ -30,7 +30,6 @@ jobs:
       - name: Upload Artifact
         uses: actions/download-artifact@v4
         with:
-          name: cli
           path: 'go/src/github.com/syniol/rock-paper-scissor-lizard-spock/dist'
 
   upload:
