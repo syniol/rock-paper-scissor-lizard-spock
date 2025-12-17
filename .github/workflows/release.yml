@@ -13,6 +13,9 @@ jobs:
   build:
     name: Build Multiple OS Binaries
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: go/src/github.com/syniol/rock-paper-scissor-lizard-spock
     steps:
       - uses: actions/setup-go@v3
         with:
