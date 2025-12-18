@@ -15,7 +15,7 @@ jobs:
         os: [ubuntu-latest]
     defaults:
       run:
-        working-directory: go/src/github.com/syniol/rock-paper-scissor-lizard-spock
+        working-directory: go/src/github.com/syniol/rock-paper-scissors-lizard-spock
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/setup-go@v3
@@ -23,7 +23,7 @@ jobs:
           go-version: ${{ matrix.go-version }}
       - uses: actions/checkout@v3
         with:
-          path: 'go/src/github.com/syniol/rock-paper-scissor-lizard-spock'
+          path: 'go/src/github.com/syniol/rock-paper-scissors-lizard-spock'
       - name: Run Vet
         run: |
           go vet ./...

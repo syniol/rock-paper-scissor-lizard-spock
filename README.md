@@ -1,11 +1,11 @@
 # Rock, Paper, Scissor, Lizard, Spock in Go <sup>(GoLang)</sup>
-![workflow](https://github.com/syniol/rock-paper-scissor-lizard-spock/actions/workflows/pipeline.yml/badge.svg)    ![workflow](https://github.com/syniol/rock-paper-scissor-lizard-spock/actions/workflows/release.yml/badge.svg)
+![workflow](https://github.com/syniol/rock-paper-scissors-lizard-spock/actions/workflows/pipeline.yml/badge.svg)    ![workflow](https://github.com/syniol/rock-paper-scissors-lizard-spock/actions/workflows/release.yml/badge.svg)
 
 <div align="center">
-    <p align="center" style="width: 50%; float: left;"><a href="https://syniol.com" target="blank"><img alt="Single Player Demo" width="50%" src="https://github.com/syniol/rock-paper-scissor-lizard-spock/blob/main/docs/single-player-demo-optimised.gif?raw=true" /></a>
+    <p align="center" style="width: 50%; float: left;"><a href="https://syniol.com" target="blank"><img alt="Single Player Demo" width="50%" src="https://github.com/syniol/rock-paper-scissors-lizard-spock/blob/main/docs/single-player-demo-optimised.gif?raw=true" /></a>
     <sup><br />Single Player Demo</sup></p>
 
-<p align="center" style="width: 50%; float: right;"><a href="https://syniol.com" target="blank"><img alt="Two Players Demo" width="50%" src="https://github.com/syniol/rock-paper-scissor-lizard-spock/blob/main/docs/two-players-demo-optimised.gif?raw=true" /></a>
+<p align="center" style="width: 50%; float: right;"><a href="https://syniol.com" target="blank"><img alt="Two Players Demo" width="50%" src="https://github.com/syniol/rock-paper-scissors-lizard-spock/blob/main/docs/two-players-demo-optimised.gif?raw=true" /></a>
     <sup><br />Two Players Demo</sup></p>
 </div>
 
@@ -50,7 +50,7 @@ up just to save face, hoping the engineers at that company might see that I'm no
 
 
 ## Up and Running
-You can download the compiled binary for your operating system from [the release page](https://github.com/syniol/rock-paper-scissor-lizard-spock/releases). You could 
+You can download the compiled binary for your operating system from [the release page](https://github.com/syniol/rock-paper-scissors-lizard-spock/releases). You could 
 also download and build from source code. You need to have a Go installation for version `1.24.x`.
 
 ```shell

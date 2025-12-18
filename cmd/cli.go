@@ -7,7 +7,7 @@ import (
 
 	"github.com/charmbracelet/huh"
 
-	"github.com/syniol/rock-paper-scissor-lizard-spock/internal/game"
+	"github.com/syniol/rock-paper-scissors-lizard-spock/internal/game"
 )
 
 func main() {

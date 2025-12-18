@@ -1,4 +1,4 @@
-module github.com/syniol/rock-paper-scissor-lizard-spock
+module github.com/syniol/rock-paper-scissors-lizard-spock
 
 go 1.24
 

@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: go/src/github.com/syniol/rock-paper-scissor-lizard-spock
+        working-directory: go/src/github.com/syniol/rock-paper-scissors-lizard-spock
     steps:
       - uses: actions/setup-go@v3
         with:
           go-version: 1.24.0
       - uses: actions/checkout@v3
         with:
-          path: 'go/src/github.com/syniol/rock-paper-scissor-lizard-spock'
+          path: 'go/src/github.com/syniol/rock-paper-scissors-lizard-spock'
 
       - name: Build Binaries
         run: make
@@ -28,5 +28,5 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           tag_name: ${{ github.ref_name }}
-          files: go/src/github.com/syniol/rock-paper-scissor-lizard-spock/dist/*
+          files: go/src/github.com/syniol/rock-paper-scissors-lizard-spock/dist/*
           fail_on_unmatched_files: true
