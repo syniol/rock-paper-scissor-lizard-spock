@@ -1,4 +1,4 @@
-# Rock, Paper, Scissor, Lizard, Spock in Go <sup>(GoLang)</sup>
+# Rock, Paper, Scissors, Lizard, Spock in Go <sup>(GoLang)</sup>
 ![workflow](https://github.com/syniol/rock-paper-scissors-lizard-spock/actions/workflows/pipeline.yml/badge.svg)    ![workflow](https://github.com/syniol/rock-paper-scissors-lizard-spock/actions/workflows/release.yml/badge.svg)
 
 <div align="center">
